@@ -4,14 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "player")
-public class Player extends Team{
-	
+public class Player{
+	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "playerId")
 	private int playerId;
@@ -29,10 +30,6 @@ public class Player extends Team{
 	
 	public Player() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Player(String teamName, String teamType, String preferredNight) {
-		super(teamName, teamType, preferredNight);
 		// TODO Auto-generated constructor stub
 	}
 	public Player(String firstName, String lastName, String phoneNumber, String screenName, Team team) {
