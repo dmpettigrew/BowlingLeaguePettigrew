@@ -37,7 +37,7 @@ public class addTeamServlet extends HttpServlet {
 		TeamHelper dao = new TeamHelper();
 		dao.addTeam(t);
 		
-		getServletContext().getRequestDispatcher("/AddTeamInfo.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/addTeamInfo.html").forward(request, response);
 	}
 
 }

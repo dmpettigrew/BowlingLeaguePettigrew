@@ -8,20 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action = "viewAllPlayersServlet">
+<form method="post" action = "editPlayerServlet">
 <table>
 <c:forEach items ="${requestScope.allPlayers}" var="currentplayers">
 <tr>
-	<td><input type="radio" name="playerId" value="${currentart.playerId}"></td>
-	<td>${currentart.firstName}</td>
-	<td>${currentart.lastName}</td>
-	<td>${currentart.phoneNumber}</td>
-	<td>${currentart.screenName}</td>
+	<td><input type="radio" name="playerId" value="${currentplayers.playerId}"></td>
+	<td>${currentplayers.firstName}</td>
+	<td>${currentplayers.lastName}</td>
+	<td>${currentplayers.phoneNumber}</td>
+	<td>${currentplayers.screenName}</td>
 </tr>
 </c:forEach>
 </table>
-<input type = "submit" value = "Delete Selected Player" name = "doThisToArt">
-<input type = "submit" value = "Add New Player" name = "doThisToArt">
+<input type = "submit" value = "Edit Selected Player" name = "doThisToPlayer">
+<input type = "submit" value = "Delete Selected Player" name = "doThisToPlayer">
+<input type = "submit" value = "Add New Player" name = "doThisToPlayer">
 </form>
+<a href = "index.html"> Back to List</a><br />
 </body>
 </html>

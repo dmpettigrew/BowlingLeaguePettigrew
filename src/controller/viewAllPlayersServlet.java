@@ -1,16 +1,20 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Player;
+
 /**
- * Servlet implementation class ViewAllPlayersServlet
+ * Servlet implementation class viewAllPlayersServlet
  */
-@WebServlet("/ViewAllPlayersServlet")
+@WebServlet("/viewAllPlayersServlet")
 public class viewAllPlayersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,11 +34,15 @@ public class viewAllPlayersServlet extends HttpServlet {
 		PlayerHelper dao = new PlayerHelper();
 		
 		request.setAttribute("allPlayers",dao.showAllPlayers());
-		
+/*		List<Player> playerlist = dao.showAllPlayers();
+		for (Player p : playerlist) {
+			System.out.println(p.toString());
+		}*/
+		//System.out.println(playerlist);
 		if(dao.showAllPlayers().isEmpty()) {
 			request.setAttribute("allPlayers"," ");
 		}
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllPlayers.jsp").forward(request, response);
 	}
 	
 

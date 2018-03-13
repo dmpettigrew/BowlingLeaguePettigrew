@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import model.Player;
+import model.Team;
 
 public class PlayerHelper {
 	EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("bowlingleaguepettigrew");
@@ -31,7 +32,7 @@ public class PlayerHelper {
 		return allPlayers;
 	}
 
-	public void deletePlayers(Player toDelete) {
+/*	public void deletePlayers(Player toDelete) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
@@ -44,5 +45,33 @@ public class PlayerHelper {
 		em.getTransaction().commit();
 		em.close();
 	
+	}*/
+	
+	public void deletePlayers(Player toDelete) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Player find = em.find(Player.class, toDelete.getPlayerId());
+		em.remove(find);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	public void updatePlayer(Player toEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	public Player searchForPlayerById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Player foundPlayer = em.find(Player.class, idToEdit);
+		em.close();
+		return foundPlayer;
 	}
 }

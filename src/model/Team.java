@@ -13,7 +13,7 @@ public class Team {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="teamId")
 	private int teamId;
 	@Column(name="teamName")
 	private String teamName;

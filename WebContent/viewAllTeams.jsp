@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action = "viewAllTeamsWithPlayersServlet">
+<form method="post" action = "editTeamsServlet">
 <table>
 <c:forEach items ="${requestScope.allTeams}" var="currentteams">
 <tr>
-	<td><input type="radio" name="teamId" value="${currentart.teamId}"></td>
-	<td>${currentart.teamName}</td>
-	<td>${currentart.teamType}</td>
-	<td>${currentart.preferredNight}</td>
+	<td><input type="radio" name="teamId" value="${currentteams.teamId}"></td>
+	<td>${currentteams.teamName}</td>
+	<td>${currentteams.teamType}</td>
+	<td>${currentteams.preferredNight}</td>
 </tr>
 </c:forEach>
 </table>
@@ -23,5 +23,6 @@
 <input type = "submit" value = "Delete Selected Team" name = "doThisToTeam">
 <input type = "submit" value = "Add New Team" name = "doThisToTeam">
 </form>
+<a href = "index.html"> Back to List</a><br />
 </body>
 </html>

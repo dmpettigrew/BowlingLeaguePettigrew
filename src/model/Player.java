@@ -38,6 +38,15 @@ public class Player{
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.screenName = screenName;
+		this.team = team;
+	}
+	
+	public Player(String firstName, String lastName, String phoneNumber, String screenName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
+		this.screenName = screenName;
 	}
 	public int getPlayerId() {
 		return playerId;
@@ -66,10 +75,14 @@ public class Player{
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
 	}
+	
+	public Team getTeam() {
+		return team;
+	}
 	@Override
 	public String toString() {
 		return "Player [playerId=" + playerId + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
-				+ phoneNumber + ", screenName=" + screenName + ", team=" + team + "]";
+				+ phoneNumber + ", screenName=" + screenName + ", team id=" + team + "]";
 	}
 	
 	
